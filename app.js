@@ -74,16 +74,16 @@ app.use((req,res,next)=>{
     next();
 });
 
-app.get("/demouser" , async(req,res)=>{
-    let fakeUser = new User({
-        email:"student@gmail.com",
-        username:"pradyumn",
-    });
+// app.get("/demouser" , async(req,res)=>{
+//     let fakeUser = new User({
+//         email:"student@gmail.com",
+//         username:"pradyumn",
+//     });
 
-    let registeredUser = await User.register(fakeUser,"Helloworld");
-    res.send(registeredUser) ;
+//     let registeredUser = await User.register(fakeUser,"Helloworld");
+//     res.send(registeredUser) ;
 
-});
+// });
 
 
 
