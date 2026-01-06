@@ -41,7 +41,7 @@ router.post(
     saveRedirectUrl,
     passport.authenticate("local", {
         failureRedirect: "/login",
-        failureFlash: "true",
+        failureFlash: "Enter correct username or password",
     }),
     async (req, res) => {
         req.flash("success", "Logged in successfully!");
