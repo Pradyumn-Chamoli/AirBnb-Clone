@@ -5,12 +5,17 @@ const Listing = require("../models/listing.js");
 const review = require("../models/review.js");
 const {isLoggedIn , isOwner, validateListing} = require("../middleware.js");
 const listingController = require("../controllers/listing.js");
+const multer = require("multer")
+const {storage} = require("../cloudConfig.js");
+const upload = multer({storage});
+
 
 
 router
 .route("/")
 .get( wrapAsync(listingController.index))
-.post(isLoggedIn ,validateListing , wrapAsync(listingController.createListing))
+.post(isLoggedIn ,upload.single("listing[image]"), validateListing ,wrapAsync(listingController.createListing))
+
 
 //New Route
 router.get("/new" ,isLoggedIn ,listingController.renderNewForm)
